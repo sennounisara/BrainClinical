@@ -8,8 +8,8 @@ Cette erreur indique que Streamlit Cloud ne peut pas installer les dépendances 
 
 ### ✅ Solution 1 : Requirements Minimal (Recommandé)
 
-1. **Renommez** `requirements_minimal.txt` en `requirement.txt`
-2. **Supprimez** l'ancien `requirement.txt`
+1. **Utilisez** le `requirement.txt` actuel (déjà corrigé)
+2. **Supprimez** `packages.txt` s'il existe
 3. **Redéployez** l'application
 
 ```bash
@@ -55,8 +55,9 @@ openpyxl>=3.0.0
 - Certaines versions de packages peuvent être incompatibles
 
 #### 2. Dépendances Système Manquantes
-- Supprimez `packages.txt` si pas nécessaire
-- Ajoutez seulement si vraiment requis
+- **Supprimez** `packages.txt` complètement
+- Il causait l'erreur "Unable to locate package"
+- Les packages système ne sont pas nécessaires pour cette app
 
 #### 3. Conflit de Versions
 - Utilisez des versions flexibles (`>=`) plutôt que fixes (`==`)
@@ -65,7 +66,7 @@ openpyxl>=3.0.0
 ### 📋 Checklist de Déploiement
 
 - [ ] `requirement.txt` contient seulement les packages essentiels
-- [ ] Pas de `packages.txt` (sauf si nécessaire)
+- [ ] **PAS de `packages.txt`** (supprimé pour éviter les erreurs)
 - [ ] Tous les fichiers .pkl sont dans le repository
 - [ ] `glioma_prediction_app.py` est à la racine
 - [ ] `.streamlit/config.toml` est présent
