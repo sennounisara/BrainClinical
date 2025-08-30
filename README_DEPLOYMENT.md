@@ -73,11 +73,36 @@ Pour mettre à jour votre application :
 1. Poussez vos changements sur GitHub
 2. Streamlit Cloud redéploiera automatiquement
 
-### 7. Support
+### 7. Dépannage des Erreurs
+
+#### ❌ Erreur "ModuleNotFoundError: No module named 'joblib'"
+**Solution :**
+1. Vérifiez que `requirement.txt` contient `joblib==1.3.2`
+2. Assurez-vous que tous les fichiers sont commités sur GitHub
+3. Redéployez l'application
+
+#### ❌ Erreur de chargement des modèles
+**Solution :**
+1. Vérifiez que tous les fichiers `.pkl` sont dans le repository
+2. Utilisez `test_deployment.py` pour diagnostiquer les problèmes
+
+#### ❌ Erreur de dépendances
+**Solution :**
+1. Vérifiez le `requirement.txt` avec des versions spécifiques
+2. Assurez-vous que `packages.txt` est présent si nécessaire
+
+### 8. Test de Déploiement
+Pour tester si votre déploiement fonctionne :
+1. Déployez d'abord `test_deployment.py` comme fichier principal
+2. Vérifiez que toutes les dépendances se chargent
+3. Puis déployez `glioma_prediction_app.py`
+
+### 9. Support
 Si vous rencontrez des problèmes :
 1. Vérifiez les logs de déploiement dans Streamlit Cloud
 2. Assurez-vous que l'application fonctionne localement
 3. Vérifiez que tous les fichiers sont commités sur GitHub
+4. Utilisez `test_deployment.py` pour diagnostiquer les problèmes
 
 ---
 
